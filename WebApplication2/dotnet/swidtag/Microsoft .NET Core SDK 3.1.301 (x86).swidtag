@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SoftwareIdentity tagId="wix:bundle/C62869C3-6F90-4CA3-A014-2D5204BD46FB" name="Microsoft .NET Core SDK 3.1.301 (x86)" version="3.1.301.15174" versionScheme="multipartnumeric" xmlns="http://standards.iso.org/iso/19770/-2/2015/schema.xsd">
+  <Entity name="Microsoft Corporation" regid="microsoft.com" role="softwareCreator tagCreator" />
+  <Meta persistentId="wix:bundle.upgrade/E93DD539-57B4-440B-6D6A-3AC8EF2829B8" />
+</SoftwareIdentity>

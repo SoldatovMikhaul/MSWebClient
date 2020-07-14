@@ -1,0 +1,43 @@
+﻿
+@model WebApplication2.Models.User
+@{
+    ViewBag.Title = Model.Name;
+}
+<h2>Пользователь: @Model.Name @Model.Surname @Model.Patronymic</h2>
+<div>
+    <dl class="dl-horizontal">
+        <dt>Идентификатор</dt>
+        <dd>@Model.Id</dd>
+
+        <dt>Возраст</dt>
+        <dd>@Model.Age</dd>
+
+        <dt>Пол</dt>
+        <dd>@Model.Male</dd>
+
+        <dt>Снилс</dt>
+        <dd>@Model.Snails</dd>
+
+        <dt>Номер телефона</dt>
+        <dd>@Model.Phone</dd>
+
+        <dt>Дата рождения</dt>
+        <dd>@Model.Birthday</dd>
+
+        <dt>Фотография пользователя</dt>
+    </dl>
+    <p><img src="@Url.Content(Model.Path)" style="width: 15%; height: 15%;"></p>
+    <!--{
+    <div>
+        <h4>Model.Name</h4>
+        {
+        <img style='width:80px; height:60px;' src="data:image/jpeg;base64,(Convert.ToBase64String(Model.Avatar))" />
+        }
+    </div>
+    }-->
+    <!--<img src="Model.Photo" />
+    <script>
+        document.write(Model.Photo)
+    </script>-->
+</div>
+

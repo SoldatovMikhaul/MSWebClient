@@ -1,0 +1,98 @@
+﻿@model WebApplication2.Models.Child
+@{
+    ViewBag.Title = "Добавление ребенка";
+}
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+    <link href="~/css/site.css" rel="stylesheet">
+</head>
+
+<!--asp-action="CreateChild" asp-controller="Home" method="post" enctype="multipart/form-data" runat="server"-->
+<form asp-action="CreateChild" asp-controller="Home" method="post" enctype="multipart/form-data" runat="server">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Имя</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="Surname" class="control-label">Фамилия</label>
+        <input type="text" asp-for="Surname" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Patronymic" class="control-label">Отчество</label>
+        <input type="text" asp-for="Patronymic" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Male" class="control-label">Пол: </label>
+        <p>
+            <input type="radio" id="maleChoice1" value="М" name="male">
+            <label for="maleChoice1">Мужской</label>
+            <input type="radio" id="maleChoice2" value="Ж" style="margin-left: 1%;" name="male">
+            <label for="maleChoice2">Женский</label>
+        </p>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Age" class="control-label">Возраст</label>
+        <input type="number" asp-for="Age" class="form-control" />
+    </div>
+
+    <div class="form-group" id="phone">
+        <label asp-for="Phone" class="control-label">Телефон</label>
+        <!--HTML элемент, который будет иметь маску ввода телефонного номера  -->
+        <input id="phone" type="text" class="phone" asp-for="Phone" style="width: 100%; display: block; height: calc(1.5em+.75rem+2px); padding: .375rem .75rem; font-size:1rem; font-weight: 400; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s;">
+        <script>
+            jQuery(function ($) {
+                $('.phone').inputmask('8(999)999-99-99', { placeholder: "8(___)___-__-__" });
+            });
+        </script>
+    </div>
+
+    <div class="form-group" id="snails">
+        <label asp-for="Snails" class="control-label">Снилс</label>
+        <input type="text" asp-for="Snails" class="snails" id="snails" style="width: 100%; display: block; height: calc(1.5em+.75rem+2px); padding: .375rem .75rem; font-size:1rem; font-weight: 400; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s;" />
+        <script>
+            jQuery(function ($) {
+                $('.snails').inputmask("999-999-999 99", { placeholder: "___-___-___ __" });
+            });
+        </script>
+    </div>
+
+    <div class="form-group" id="birthday">
+        <label asp-for="Birthday" class="control-label">День рождение</label>
+        <input type="date" id="birthday" class="birthday" asp-for="Birthday" style="width: 100%; display: block; height: calc(1.5em+.75rem+2px); padding: .375rem .75rem; font-size:1rem; font-weight: 400; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s;">
+        <script>
+            $('.birthday').inputmask('99.99.9999', { placeholder: "ДД.ММ.ГГГГ" });
+        </script>
+    </div>
+
+    <div class="form-group">
+        <p>Выберите файл для загрузки</p>
+        <input type="file" name="uploadedFile" asp-for="Avatar" id="imgInp" /><br>
+        <img id="blah" style="width: 15%; height: 15%">
+        <script>
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#blah').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $("#imgInp").change(function () {
+                readURL(this);
+            });
+        </script>
+        <!---<input type="submit" value="Загрузить" />-->
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Отправить" />
+    </div>
+</form>
+
